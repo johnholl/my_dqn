@@ -1,0 +1,103 @@
+from dqn import DQN
+from observation_processing import preprocess
+import numpy as np
+import tensorflow as tf
+import random
+
+
+# A helper that combines different parts of the step procedure
+def true_step(prob, state, obs2, obs3, obs4, session, env):
+
+    Q_vals = session.run(dqn.output, feed_dict={dqn.input: [state]})
+    if random.uniform(0,1) > prob:
+        step_action = Q_vals.argmax()
+    else:
+        step_action = env.sample_action()
+
+    if prob > 0.1:
+        prob -= .9e-7
+
+    new_obs, step_reward, step_done = env.step(step_action)
+
+    processed_obs = preprocess(new_obs)
+    new_state = np.transpose([obs2, obs3, obs4, processed_obs], (1, 2, 0))
+
+    # if done:
+    #     reward -= 1
+
+    return prob, step_action, step_reward, new_state, obs2, obs3, obs4, processed_obs, Q_vals.max(), step_done
+
+
+
+
+dqn = DQN()
+dqn.sess.run(tf.initialize_all_variables())
+target_weights = dqn.sess.run(dqn.weights)
+replay_memory = []
+episode_step_count = []
+total_steps = 0
+prob = 1.0
+learning_data = []
+
+for episode in range(100000):
+    obs1 = dqn.env.reset()
+    obs2 = dqn.env.step(dqn.env.sample_action())[0]
+    obs3 = dqn.env.step(dqn.env.sample_action())[0]
+    obs4, _, done = dqn.env.step(dqn.env.sample_action())
+    obs1, obs2, obs3, obs4 = preprocess(obs1), preprocess(obs2), preprocess(obs3), preprocess(obs4)
+    state = np.transpose([obs1, obs2, obs3, obs4], (1, 2, 0))
+    steps = 0
+
+    while not done:
+        prob, action, reward, new_state, obs1, obs2, obs3, obs4, _, done =\
+            true_step(prob, state, obs2, obs3, obs4, dqn.sess, dqn.env)
+
+        dqn.update_replay_memory((state, action, reward, new_state, done))
+        state = new_state
+
+        if len(dqn.replay_memory) >= 50000 and total_steps % 4 == 0:
+            # here is where the training procedure takes place
+            # compute the one step q-values w.r.t. old weights (ie y in the loss function (y-Q(s,a,0))^2)
+            # Also defines the one-hot readout action vectors
+            minibatch = random.sample(dqn.replay_memory, 32)
+            next_states = [m[3] for m in minibatch]
+            feed_dict = {dqn.input: next_states}
+            feed_dict.update(zip(dqn.weights, target_weights))
+            q_vals = dqn.sess.run(dqn.output, feed_dict=feed_dict)
+            max_q = q_vals.max(axis=1)
+            target_q = np.zeros(32)
+            action_list = np.zeros((32,6))
+            for i in range(32):
+                _, action_index, reward, _, terminal = minibatch[i]
+                target_q[i] = reward
+                if not terminal:
+                    target_q[i] = target_q[i] + 0.99*max_q[i]
+
+                action_list[i][action_index] = 1.0
+
+            states = [m[0] for m in minibatch]
+            feed_dict = {dqn.input: states, dqn.target: target_q, dqn.action_hot: action_list}
+            dqn.sess.run(dqn.train_operation, feed_dict=feed_dict)
+
+        if total_steps % 10000 == 0:
+            target_weights = dqn.sess.run(dqn.weights)
+            # avg_Q, avg_rewards, max_reward, avg_steps = dqn.test_network()
+            # learning_data.append([total_steps, avg_Q, avg_rewards, max_reward, avg_steps])
+            # np.save('graph_data', learning_data)
+
+        if total_steps % 500000 == 0:
+            np.save('weights_' + str(int(total_steps/500000)), target_weights)
+
+        total_steps += 1
+        steps += 1
+
+        if done:
+            break
+
+    if total_steps > 10000000:
+        break
+
+    episode_step_count.append(steps)
+    mean_steps = np.mean(episode_step_count[-100:])
+    print("Training episode = {}, Total steps = {}, Last 100 mean steps = {}"
+          .format(episode, total_steps, mean_steps))
