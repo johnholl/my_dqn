@@ -68,22 +68,72 @@ class DQN:
             self.replay_memory.pop(0)
 
     def test_network(self):
-        pass
-        # run for 20 episodes. Record step length, avg Q value, max reward, avg reward,
+        # run for 20 episodes. Record step length, avg Q value, max reward, avg reward, loss, weight values for
+        # each layer ...
+        weights = self.sess.run(self.weights)
+        layer1_weight_avg = np.average(np.absolute(weights[0]))
+        layer1_bias_avg = np.average(np.absolute(weights[1]))
+        layer2_weight_avg = np.average(np.absolute(weights[2]))
+        layer2_bias_avg = np.average(np.absolute(weights[3]))
+        layer3_weight_avg = np.average(np.absolute(weights[4]))
+        layer3_bias_avg = np.average(np.absolute(weights[5]))
+        layer4_weight_avg = np.average(np.absolute(weights[6]))
+        layer4_bias_avg = np.average(np.absolute(weights[7]))
+        weight_avgs = [layer1_weight_avg, layer1_bias_avg, layer2_weight_avg, layer2_bias_avg, layer3_weight_avg,
+                         layer3_bias_avg, layer4_weight_avg, layer4_bias_avg]
+
+        test_env = Environment('./Breakout.bin')
+        total_reward = 0.
+        total_steps = 0.
+        Q_avg_total = 0.
+        max_reward = 0.
+        for ep in range(20):
+            obs1 = test_env.reset()
+            obs2 = test_env.step(test_env.sample_action())[0]
+            obs3 = test_env.step(test_env.sample_action())[0]
+            obs4, _, done = test_env.step(test_env.sample_action())
+            obs1, obs2, obs3, obs4 = preprocess(obs1), preprocess(obs2), preprocess(obs3), preprocess(obs4)
+            state = np.transpose([obs1, obs2, obs3, obs4], (1, 2, 0))
+            episode_reward = 0.
+            num_steps = 0.
+            ep_Q_total = 0.
+            done = False
+            while not done:
+                _, action, reward, new_state, obs1, obs2, obs3, obs4, Qval, done =\
+                    self.true_step(0.05, state, obs2, obs3, obs4, test_env)
+                state = new_state
+                episode_reward += reward
+                num_steps += 1.
+                ep_Q_total += Qval
+            max_reward = max(episode_reward, max_reward)
+            ep_Q_avg = ep_Q_total/num_steps
+            Q_avg_total += ep_Q_avg
+            total_reward += episode_reward
+            total_steps += num_steps
+
+        avg_Q = Q_avg_total/20.
+        avg_reward = total_reward/20.
+        avg_steps = total_steps/20.
+        print("Average Q-value: {}".format(avg_Q))
+        print("Average episode reward: {}".format(avg_reward))
+        print("Average number of steps: {}".format(avg_steps))
+        print("Max reward over 20 episodes: {}".format(max_reward))
+
+        return weight_avgs, avg_Q, avg_reward, max_reward, avg_steps
 
     # A helper that combines different parts of the step procedure
-    def true_step(self, prob, state, obs2, obs3, obs4):
+    def true_step(self, prob, state, obs2, obs3, obs4, env):
 
         Q_vals = self.sess.run(self.output, feed_dict={self.input: [state]})
         if random.uniform(0,1) > prob:
             step_action = Q_vals.argmax()
         else:
-            step_action = self.env.sample_action()
+            step_action = env.sample_action()
 
         if prob > 0.1:
             prob -= 9.0e-7
 
-        new_obs, step_reward, step_done = self.env.step(step_action)
+        new_obs, step_reward, step_done = env.step(step_action)
 
         processed_obs = preprocess(new_obs)
         new_state = np.transpose([obs2, obs3, obs4, processed_obs], (1, 2, 0))
