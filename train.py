@@ -1,31 +1,10 @@
-from dqn import DQN
+from dqn import DQN, true_step
 from observation_processing import preprocess
 import numpy as np
 import tensorflow as tf
 import random
 
 
-# A helper that combines different parts of the step procedure
-def true_step(prob, state, obs2, obs3, obs4, session, env):
-
-    Q_vals = session.run(dqn.output, feed_dict={dqn.input: [state]})
-    if random.uniform(0,1) > prob:
-        step_action = Q_vals.argmax()
-    else:
-        step_action = env.sample_action()
-
-    if prob > 0.1:
-        prob -= .9e-7
-
-    new_obs, step_reward, step_done = env.step(step_action)
-
-    processed_obs = preprocess(new_obs)
-    new_state = np.transpose([obs2, obs3, obs4, processed_obs], (1, 2, 0))
-
-    # if done:
-    #     reward -= 1
-
-    return prob, step_action, step_reward, new_state, obs2, obs3, obs4, processed_obs, Q_vals.max(), step_done
 
 
 
@@ -49,9 +28,7 @@ for episode in range(100000):
     steps = 0
 
     while not done:
-        prob, action, reward, new_state, obs1, obs2, obs3, obs4, _, done =\
-            true_step(prob, state, obs2, obs3, obs4, dqn.sess, dqn.env)
-
+        prob, action, reward, new_state, obs1, obs2, obs3, obs4, _, done = dqn.true_step(prob, state, obs2, obs3, obs4)
         dqn.update_replay_memory((state, action, reward, new_state, done))
         state = new_state
 
@@ -66,7 +43,7 @@ for episode in range(100000):
             q_vals = dqn.sess.run(dqn.output, feed_dict=feed_dict)
             max_q = q_vals.max(axis=1)
             target_q = np.zeros(32)
-            action_list = np.zeros((32,6))
+            action_list = np.zeros((32,4))
             for i in range(32):
                 _, action_index, reward, _, terminal = minibatch[i]
                 target_q[i] = reward
