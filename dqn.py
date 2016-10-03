@@ -56,11 +56,11 @@ class DQN:
         self.action_hot = tf.placeholder('float', [None,4])
         self.action_readout = tf.reduce_sum(tf.mul(self.output, self.action_hot), reduction_indices=1)
         self.loss = tf.reduce_mean(tf.square(tf.sub(self.action_readout, self.target)))
-        # self.optimizer = tf.train.RMSPropOptimizer(0.00025, decay=0.95, epsilon=1e-6)
-        # self.gradients_and_vars = self.optimizer.compute_gradients(self.loss)
-        # self.clipped_gradients = [(tf.clip_by_value(gv[0], 1., -1.), gv[1]) for gv in self.gradients_and_vars]
-        # self.train_operation = self.optimizer.apply_gradients(self.clipped_gradients)
-        self.train_operation = tf.train.RMSPropOptimizer(0.00025, decay=0.95, epsilon=0.01).minimize(self.loss)
+        self.optimizer = tf.train.RMSPropOptimizer(0.00025, decay=0.95, epsilon=0.01)
+        self.gradients_and_vars = self.optimizer.compute_gradients(self.loss)
+        self.clipped_gradients = [(tf.clip_by_value(gv[0], -1., 1.), gv[1]) for gv in self.gradients_and_vars]
+        self.train_operation = self.optimizer.apply_gradients(self.clipped_gradients)
+        # self.train_operation = tf.train.RMSPropOptimizer(0.00025, decay=0.95, epsilon=0.01).minimize(self.loss)
         self.sess.run(tf.initialize_all_variables())
 
 

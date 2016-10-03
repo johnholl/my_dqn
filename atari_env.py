@@ -1,9 +1,9 @@
 from ale_python_interface import ALEInterface
 import numpy as np
-from Tkinter import *
-import ImageTk
-from PIL import Image
-import time
+# from Tkinter import *
+# import ImageTk
+# from PIL import Image
+# import time
 import random
 
 
