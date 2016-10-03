@@ -31,7 +31,7 @@ while total_steps < 10000000:
         dqn.update_replay_memory((state, action, reward, new_state, done))
         state = new_state
 
-        if len(dqn.replay_memory) >= 50000 and total_steps % 4 == 0:
+        if len(dqn.replay_memory) >= 40000 and total_steps % 4 == 0:
             # here is where the training procedure takes place
             # compute the one step q-values w.r.t. old weights (ie y in the loss function (y-Q(s,a,0))^2)
             # Also defines the one-hot readout action vectors
