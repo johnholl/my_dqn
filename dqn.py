@@ -55,8 +55,14 @@ class DQN:
         self.target = tf.placeholder(tf.float32, None)
         self.action_hot = tf.placeholder('float', [None,4])
         self.action_readout = tf.reduce_sum(tf.mul(self.output, self.action_hot), reduction_indices=1)
-        self.loss = tf.clip_by_value(tf.reduce_mean(tf.square(tf.sub(self.action_readout, self.target))), -1., 1.)
-        self.train_operation = tf.train.RMSPropOptimizer(0.00025, decay=0.95, epsilon=1e-6).minimize(self.loss)
+        self.loss =tf.reduce_mean(tf.square(tf.sub(self.action_readout, self.target)))
+        self.optimizer = tf.train.RMSPropOptimizer(0.00025, decay=0.95, epsilon=1e-6)
+        self.gradients_and_vars = self.optimizer.compute_gradients(self.loss)
+        self.clipped_gradients = [(tf.clip_by_value(gv[0], 1., -1.), gv[1]) for gv in self.gradients_and_vars]
+        self.train_operation = self.optimizer.apply_gradients(self.clipped_gradients)
+        self.sess.run(tf.initialize_all_variables())
+
+
 
         weights = [self.conv1_weight, self.conv1_bias, self.conv2_weight, self.conv2_bias, self.fc1_weight,
                         self.fc1_bias, self.fc2_weight, self.fc2_bias]

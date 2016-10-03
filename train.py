@@ -6,7 +6,7 @@ import random
 
 
 dqn = DQN()
-dqn.sess.run(tf.initialize_all_variables())
+
 target_weights = dqn.sess.run(dqn.weights)
 replay_memory = []
 episode_step_count = []
