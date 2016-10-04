@@ -20,6 +20,8 @@ layer3_bias = [weight_data[i][5] for i in range(len(weight_data))]
 layer4_weights = [weight_data[i][6] for i in range(len(weight_data))]
 layer4_bias = [weight_data[i][7] for i in range(len(weight_data))]
 
-plt.plot(time_vals, step_vals)
+plt.ylabel("Average reward over 20 episodes")
+
+plt.plot(time_vals, weight_data)
 # plt.plot(time_vals, layer1_bias)
 plt.show()

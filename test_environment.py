@@ -1,5 +1,7 @@
 from atari_env import Environment
 import random
+from observation_processing import preprocess
+import numpy as np
 
 env = Environment(rom="/home/john/code/pythonfiles/my_dqn/Breakout.bin")
 obs = env.reset()
@@ -8,6 +10,6 @@ while not done:
     #action = random.choice([0,1,2,3])
     action = raw_input("enter an action")
     obs, rew, done = env.step(action)
-    print(rew)
-    # raw_input("Press Enter to continue...")
-    env.render(0.01)
+    obs = preprocess(obs)
+    print(np.max(obs))
+    print(np.min(obs))
