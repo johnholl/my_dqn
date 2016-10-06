@@ -39,7 +39,7 @@ class DQN:
     def initialize_network(self, memory_fraction):
         self.gpu_options = tf.GPUOptions(per_process_gpu_memory_fraction=memory_fraction)
         self.sess = tf.Session(config=tf.ConfigProto(gpu_options=self.gpu_options))
-        
+
         self.input = tf.placeholder(tf.float32, shape=[None, 84, 84, 4])
         self.conv1_weight = weight_variable(shape=[8, 8, 4, 16], name='conv1_weight')
         self.conv1_bias = bias_variable(shape=[16], name='conv1_bias')

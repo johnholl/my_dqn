@@ -16,12 +16,22 @@ class Environment:
         self.ale.loadROM(rom_file=rom)
         self.action_space = self.ale.getMinimalActionSet()
         self.obs = self.reset()
-        self.im = Image.fromarray(self.obs)
-        self.root = Tk()
-        self.tkim = ImageTk.PhotoImage(self.im)
-        self.window = Label(image=self.tkim)
-        self.window.image = self.tkim
-        self.window.pack()
+
+        try:
+            from Tkinter import *
+            import ImageTk
+            from PIL import Image
+
+            self.im = Image.fromarray(self.obs)
+            self.root = Tk()
+            self.tkim = ImageTk.PhotoImage(self.im)
+            self.window = Label(image=self.tkim)
+            self.window.image = self.tkim
+            self.window.pack()
+            
+
+        except ImportError:
+            print("Machine does not have libraries for rendering")
 
 
     def step(self, action):
