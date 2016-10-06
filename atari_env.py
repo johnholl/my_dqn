@@ -1,8 +1,5 @@
 from ale_python_interface import ALEInterface
 import numpy as np
-from Tkinter import *
-import ImageTk
-from PIL import Image
 import time
 import random
 from observation_processing import blacken_score, preprocess
@@ -28,7 +25,7 @@ class Environment:
             self.window = Label(image=self.tkim)
             self.window.image = self.tkim
             self.window.pack()
-            
+
 
         except ImportError:
             print("Machine does not have libraries for rendering")
