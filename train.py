@@ -52,19 +52,20 @@ while total_steps < 20000000:
 
             states = [m[0] for m in minibatch]
             feed_dict = {dqn.input: states, dqn.target: target_q, dqn.action_hot: action_list}
-            _, loss_val, grad_avgs = dqn.sess.run(fetches=(dqn.train_operation, dqn.loss, dqn.gradient_avgs), feed_dict=feed_dict)
+            _, loss_val= dqn.sess.run(fetches=(dqn.train_operation, dqn.loss), feed_dict=feed_dict)
             loss_vals.append(loss_val)
 
-        if total_steps % 40000 == 0:
+        if total_steps % 10000 == 0:
             target_weights = dqn.sess.run(dqn.weights)
 
         if total_steps % 50000 == 0:
             weight_avgs, avg_Q, avg_rewards, max_reward, avg_steps = dqn.test_network()
             learning_data.append([total_steps, avg_Q, avg_rewards, max_reward, avg_steps,
-                                  np.mean(loss_vals[-100]), prob, grad_avgs])
+                                  np.mean(loss_vals[-100]), prob])
             weight_average_array.append(weight_avgs)
             np.save('learning_data', learning_data)
             np.save('weight_averages', weight_average_array)
+            dqn.save()
             np.save('weights_' + str(int(total_steps/50000)), target_weights)
 
         total_steps += 1

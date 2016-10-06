@@ -28,10 +28,13 @@ def conv2d(x, W, stride):
 
 class DQN:
 
-    def __init__(self):
+    def __init__(self, load_path = 0):
         self.env = Environment("./Breakout.bin")
-        self.weights = self.initialize_network()
         self.replay_memory = []
+        self.save_path = "/home/john/code/pythonfiles/my_dqn/saved_models/model.ckpt"
+        self.load_path = load_path
+        self.weights = self.initialize_network()
+
 
 
 
@@ -62,13 +65,25 @@ class DQN:
         self.gradient_avgs = [tf.reduce_mean(grads) for grads in self.gradients]
         self.clipped_gradients = [(tf.clip_by_value(gv[0], -1., 1.), gv[1]) for gv in self.gradients_and_vars]
         self.train_operation = self.optimizer.apply_gradients(self.clipped_gradients)
+
+        self.saver = tf.train.Saver()
         self.sess.run(tf.initialize_all_variables())
 
-
+        self.load()
 
         weights = [self.conv1_weight, self.conv1_bias, self.conv2_weight, self.conv2_bias, self.fc1_weight,
                         self.fc1_bias, self.fc2_weight, self.fc2_bias]
         return weights
+
+    def save(self):
+        self.saver.save(self.sess, save_path=self.save_path)
+
+    def load(self):
+        if self.load_path != 0:
+            self.saver.restore(self.sess, self.load_path)
+            print("Model at path ", self.load_path, " loaded.")
+        else:
+            print("No model provided.")
 
     def update_replay_memory(self, tuple):
         self.replay_memory.append(tuple)
@@ -128,6 +143,9 @@ class DQN:
         print("Max reward over 20 episodes: {}".format(max_reward))
 
         return weight_avgs, avg_Q, avg_reward, max_reward, avg_steps
+
+
+
 
     # A helper that combines different parts of the step procedure
     def true_step(self, prob, state, obs2, obs3, obs4, env):

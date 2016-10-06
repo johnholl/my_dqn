@@ -1,0 +1,2 @@
+model_checkpoint_path: "/home/john/code/pythonfiles/my_dqn/saved_models/model.ckpt"
+all_model_checkpoint_paths: "/home/john/code/pythonfiles/my_dqn/saved_models/model.ckpt"

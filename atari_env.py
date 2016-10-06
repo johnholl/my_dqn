@@ -1,11 +1,11 @@
 from ale_python_interface import ALEInterface
 import numpy as np
-# from Tkinter import *
-# import ImageTk
-# from PIL import Image
-# import time
+from Tkinter import *
+import ImageTk
+from PIL import Image
+import time
 import random
-
+from observation_processing import blacken_score, preprocess
 
 
 class Environment:
@@ -16,12 +16,12 @@ class Environment:
         self.ale.loadROM(rom_file=rom)
         self.action_space = self.ale.getMinimalActionSet()
         self.obs = self.reset()
-        # self.im = Image.fromarray(self.obs)
-        # self.root = Tk()
-        # self.tkim = ImageTk.PhotoImage(self.im)
-        # self.window = Label(image=self.tkim)
-        # self.window.image = self.tkim
-        # self.window.pack()
+        self.im = Image.fromarray(self.obs)
+        self.root = Tk()
+        self.tkim = ImageTk.PhotoImage(self.im)
+        self.window = Label(image=self.tkim)
+        self.window.image = self.tkim
+        self.window.pack()
 
 
     def step(self, action):
@@ -49,14 +49,14 @@ class Environment:
         self.obs = np.squeeze(self.ale.getScreenGrayscale())
         return self.obs
 
-    # def render(self, rate=0.1):
-    #     self.im = Image.fromarray(self.obs)
-    #     self.tkim = ImageTk.PhotoImage(self.im)
-    #     self.window.configure(image=self.tkim)
-    #     self.window.image = self.tkim
-    #     self.window.update_idletasks()
-    #     self.window.update()
-    #     time.sleep(rate)
+    def render(self, rate=0.1):
+        self.im = Image.fromarray(self.obs)
+        self.tkim = ImageTk.PhotoImage(self.im)
+        self.window.configure(image=self.tkim)
+        self.window.image = self.tkim
+        self.window.update_idletasks()
+        self.window.update()
+        time.sleep(rate)
 
     def sample_action(self):
         action = random.choice([0, 1, 2, 3])
