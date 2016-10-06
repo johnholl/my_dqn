@@ -28,18 +28,18 @@ def conv2d(x, W, stride):
 
 class DQN:
 
-    def __init__(self, load_path = 0):
+    def __init__(self, load_path=0, memory_fraction=1.0):
         self.env = Environment("./Breakout.bin")
         self.replay_memory = []
         self.save_path = "/home/john/code/pythonfiles/my_dqn/saved_models/model.ckpt"
         self.load_path = load_path
-        self.weights = self.initialize_network()
+        self.memory_fraction = memory_fraction
+        self.weights = self.initialize_network(self.memory_fraction)
 
-
-
-
-    def initialize_network(self):
-        self.sess = tf.Session()
+    def initialize_network(self, memory_fraction):
+        self.gpu_options = tf.GPUOptions(per_process_gpu_memory_fraction=memory_fraction)
+        self.sess = tf.Session(config=tf.ConfigProto(gpu_options=self.gpu_options))
+        
         self.input = tf.placeholder(tf.float32, shape=[None, 84, 84, 4])
         self.conv1_weight = weight_variable(shape=[8, 8, 4, 16], name='conv1_weight')
         self.conv1_bias = bias_variable(shape=[16], name='conv1_bias')

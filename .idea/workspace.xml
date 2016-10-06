@@ -2,17 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a782335a-dd9a-4baa-ac61-54579ea8f08c" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/config.py" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_0.npy" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/atari_env.py" afterPath="$PROJECT_DIR$/atari_env.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/display_stats.py" afterPath="$PROJECT_DIR$/display_stats.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dqn.py" afterPath="$PROJECT_DIR$/dqn.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/learning_data.npy" afterPath="$PROJECT_DIR$/learning_data.npy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/observation_processing.py" afterPath="$PROJECT_DIR$/observation_processing.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test_environment.py" afterPath="$PROJECT_DIR$/test_environment.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/train.py" afterPath="$PROJECT_DIR$/train.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/weight_averages.npy" afterPath="$PROJECT_DIR$/weight_averages.npy" />
     </list>
     <ignored path="my_dqn.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -57,10 +48,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="observation_processing.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="observation_processing.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/observation_processing.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.42170542">
+            <state vertical-scroll-proportion="0.0">
               <caret line="16" column="14" selection-start-line="16" selection-start-column="14" selection-end-line="16" selection-end-column="14" />
               <folding>
                 <element signature="e#0#21#0" expanded="true" />
@@ -69,11 +60,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dqn.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="dqn.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/dqn.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="24" column="25" selection-start-line="24" selection-start-column="25" selection-end-line="24" selection-end-column="25" />
+            <state vertical-scroll-proportion="0.7627907">
+              <caret line="41" column="8" selection-start-line="41" selection-start-column="8" selection-end-line="41" selection-end-column="8" />
               <folding>
                 <element signature="e#0#33#0" expanded="true" />
               </folding>
@@ -146,9 +137,9 @@
         <option value="$PROJECT_DIR$/atari_env.py" />
         <option value="$PROJECT_DIR$/test_environment.py" />
         <option value="$PROJECT_DIR$/display_stats.py" />
-        <option value="$PROJECT_DIR$/dqn.py" />
         <option value="$PROJECT_DIR$/train.py" />
         <option value="$PROJECT_DIR$/observation_processing.py" />
+        <option value="$PROJECT_DIR$/dqn.py" />
       </list>
     </option>
   </component>
@@ -908,16 +899,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dqn.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="24" column="25" selection-start-line="24" selection-start-column="25" selection-end-line="24" selection-end-column="25" />
-          <folding>
-            <element signature="e#0#33#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/train.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -930,10 +911,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/observation_processing.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.42170542">
+        <state vertical-scroll-proportion="0.0">
           <caret line="16" column="14" selection-start-line="16" selection-start-column="14" selection-end-line="16" selection-end-column="14" />
           <folding>
             <element signature="e#0#21#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dqn.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7627907">
+          <caret line="41" column="8" selection-start-line="41" selection-start-column="8" selection-end-line="41" selection-end-column="8" />
+          <folding>
+            <element signature="e#0#33#0" expanded="true" />
           </folding>
         </state>
       </provider>
