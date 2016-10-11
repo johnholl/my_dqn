@@ -72,7 +72,7 @@ class DQN:
 
     def update_replay_memory(self, tuple):
         self.replay_memory.append(tuple)
-        if len(self.replay_memory) > 1000000:
+        if len(self.replay_memory) > 300000:
             self.replay_memory.pop(0)
 
     def test_network(self):
