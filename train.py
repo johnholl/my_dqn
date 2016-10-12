@@ -37,7 +37,7 @@ while total_steps < 20000000:
             # Also defines the one-hot readout action vectors
             minibatch = random.sample(dqn.replay_memory, 32)
             next_states = [m[3] for m in minibatch]
-            feed_dict = {dqn.input: next_states}
+            feed_dict = {dqn.input: np.array(next_states)/255.}
             feed_dict.update(zip(dqn.weights, target_weights))
             q_vals = dqn.sess.run(dqn.output, feed_dict=feed_dict)
             max_q = q_vals.max(axis=1)
@@ -52,7 +52,7 @@ while total_steps < 20000000:
                 action_list[i][action_index] = 1.0
 
             states = [m[0] for m in minibatch]
-            feed_dict = {dqn.input: states, dqn.target: target_q, dqn.action_hot: action_list}
+            feed_dict = {dqn.input: np.array(states)/255., dqn.target: target_q, dqn.action_hot: action_list}
             _, loss_val = dqn.sess.run(fetches=(dqn.train_operation, dqn.loss), feed_dict=feed_dict)
             loss_vals.append(loss_val)
 

@@ -58,8 +58,8 @@ class DQN:
         self.loss = tf.reduce_mean(tf.square(tf.sub(self.action_readout, self.target)))
         self.optimizer = tf.train.RMSPropOptimizer(0.00025, decay=0.95, epsilon=0.01)
         self.gradients_and_vars = self.optimizer.compute_gradients(self.loss)
-        self.gradients = [gravar[0] for gravar in self.gradients_and_vars]
-        self.gradient_avgs = [tf.reduce_mean(grads) for grads in self.gradients]
+        #self.gradients = [gravar[0] for gravar in self.gradients_and_vars]
+        #self.gradient_avgs = [tf.reduce_mean(grads) for grads in self.gradients]
         self.clipped_gradients = [(tf.clip_by_value(gv[0], -1., 1.), gv[1]) for gv in self.gradients_and_vars]
         self.train_operation = self.optimizer.apply_gradients(self.clipped_gradients)
         self.sess.run(tf.initialize_all_variables())
@@ -72,7 +72,7 @@ class DQN:
 
     def update_replay_memory(self, tuple):
         self.replay_memory.append(tuple)
-        if len(self.replay_memory) > 300000:
+        if len(self.replay_memory) > 1000000:
             self.replay_memory.pop(0)
 
     def test_network(self):
@@ -132,7 +132,7 @@ class DQN:
     # A helper that combines different parts of the step procedure
     def true_step(self, prob, state, obs2, obs3, obs4, env):
 
-        Q_vals = self.sess.run(self.output, feed_dict={self.input: [state]})
+        Q_vals = self.sess.run(self.output, feed_dict={self.input: [np.array(state)/255.]})
         if random.uniform(0,1) > prob:
             step_action = Q_vals.argmax()
         else:
