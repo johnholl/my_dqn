@@ -55,13 +55,13 @@ class DQN:
         self.target = tf.placeholder(tf.float32, None)
         self.action_hot = tf.placeholder('float', [None,4])
         self.action_readout = tf.reduce_sum(tf.mul(self.output, self.action_hot), reduction_indices=1)
-        self.loss = tf.reduce_mean(tf.square(tf.sub(self.action_readout, self.target)))
+        self.loss = tf.reduce_mean(.5*tf.square(tf.sub(self.action_readout, self.target)))
         self.optimizer = tf.train.RMSPropOptimizer(0.00025, decay=0.95, epsilon=0.01)
         self.gradients_and_vars = self.optimizer.compute_gradients(self.loss)
-        #self.gradients = [gravar[0] for gravar in self.gradients_and_vars]
-        #self.gradient_avgs = [tf.reduce_mean(grads) for grads in self.gradients]
-        self.clipped_gradients = [(tf.clip_by_value(gv[0], -1., 1.), gv[1]) for gv in self.gradients_and_vars]
-        self.train_operation = self.optimizer.apply_gradients(self.clipped_gradients)
+        self.gradients = [gravar[0] for gravar in self.gradients_and_vars]
+        self.vars = [gravar[1] for gravar in self.gradients_and_vars]
+        self.clipped_gradients = tf.clip_by_global_norm(self.gradients, 1.)[0]
+        self.train_operation = self.optimizer.apply_gradients(zip(self.clipped_gradients, self.vars))
         self.sess.run(tf.initialize_all_variables())
 
 
@@ -106,7 +106,7 @@ class DQN:
             num_steps = 0.
             ep_Q_total = 0.
             done = False
-            while not done:
+            while not test_env.ale.game_over():
                 _, action, reward, new_state, obs1, obs2, obs3, obs4, Qval, done =\
                     self.true_step(0.05, state, obs2, obs3, obs4, test_env)
                 state = new_state
@@ -132,7 +132,7 @@ class DQN:
     # A helper that combines different parts of the step procedure
     def true_step(self, prob, state, obs2, obs3, obs4, env):
 
-        Q_vals = self.sess.run(self.output, feed_dict={self.input: [np.array(state)/255.]})
+        Q_vals = self.sess.run(self.output, feed_dict={self.input: [np.array(state)]})
         if random.uniform(0,1) > prob:
             step_action = Q_vals.argmax()
         else:
@@ -145,8 +145,5 @@ class DQN:
 
         processed_obs = preprocess(new_obs)
         new_state = np.transpose([obs2, obs3, obs4, processed_obs], (1, 2, 0))
-
-        # if done:
-        #     reward -= 1
 
         return prob, step_action, step_reward, new_state, obs2, obs3, obs4, processed_obs, Q_vals.max(), step_done
