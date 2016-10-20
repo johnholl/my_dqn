@@ -3,7 +3,8 @@ import random
 from observation_processing import preprocess
 import numpy as np
 
-env = Environment(rom="/home/john/code/pythonfiles/my_dqn/Breakout.bin")
+env = Environment(rom="/home/john/code/pythonfiles/my_dqn/beam_rider.bin")
+print(env.action_space)
 obs = env.reset()
 done = False
 while not done:

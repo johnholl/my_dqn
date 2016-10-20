@@ -2,15 +2,172 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a782335a-dd9a-4baa-ac61-54579ea8f08c" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/layer_helpers.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modified_dqn.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/td_net.py" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weight_averages.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weight_averages0.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weight_averages1.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weight_averages2.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_0.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_1.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_10.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_100.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_101.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_102.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_103.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_104.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_105.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_106.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_107.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_108.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_109.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_11.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_110.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_111.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_112.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_113.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_114.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_115.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_116.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_117.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_118.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_119.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_12.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_120.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_121.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_122.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_123.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_124.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_125.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_126.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_127.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_127_1.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_128.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_129.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_13.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_130.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_131.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_132.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_133.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_134.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_135.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_136.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_137.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_138.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_139.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_14.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_140.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_141.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_142.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_143.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_144.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_15.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_151.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_152.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_153.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_16.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_17.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_18.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_19.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_2.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_20.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_21.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_22.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_23.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_24.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_25.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_26.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_27.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_278.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_28.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_29.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_3.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_30.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_31.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_318.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_32.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_33.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_34.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_35.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_36.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_37.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_38.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_39.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_4.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_40.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_41.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_42.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_43.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_44.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_45.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_46.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_47.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_48.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_49.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_5.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_50.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_51.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_52.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_53.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_54.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_55.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_56.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_57.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_58.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_59.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_6.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_60.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_61.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_62.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_63.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_64.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_65.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_66.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_67.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_68.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_69.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_7.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_70.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_71.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_72.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_73.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_74.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_75.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_76.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_77.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_78.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_79.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_8.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_80.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_81.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_82.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_83.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_84.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_85.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_86.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_87.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_88.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_89.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_9.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_90.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_91.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_92.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_93.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_94.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_95.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_96.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_97.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_98.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weights_99.npy" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/train.py" afterPath="$PROJECT_DIR$/train_dqn.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/atari_env.py" afterPath="$PROJECT_DIR$/atari_env.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/display_stats.py" afterPath="$PROJECT_DIR$/display_stats.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dqn.py" afterPath="$PROJECT_DIR$/dqn.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/learning_data.npy" afterPath="$PROJECT_DIR$/learning_data.npy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/observation_processing.py" afterPath="$PROJECT_DIR$/observation_processing.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/learning_data2.npy" afterPath="$PROJECT_DIR$/learning_data2.npy" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/play.py" afterPath="$PROJECT_DIR$/play.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/train.py" afterPath="$PROJECT_DIR$/train.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/weight_averages.npy" afterPath="$PROJECT_DIR$/weight_averages.npy" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test_environment.py" afterPath="$PROJECT_DIR$/test_environment.py" />
     </list>
     <ignored path="my_dqn.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -35,7 +192,7 @@
         <entry file="file://$PROJECT_DIR$/atari_env.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="45" column="41" selection-start-line="45" selection-start-column="41" selection-end-line="45" selection-end-column="41" />
+              <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
               <folding>
                 <element signature="e#0#45#0" expanded="true" />
               </folding>
@@ -47,7 +204,7 @@
         <entry file="file://$PROJECT_DIR$/test_environment.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+              <caret line="6" column="22" selection-start-line="6" selection-start-column="22" selection-end-line="6" selection-end-column="22" />
               <folding>
                 <element signature="e#0#33#0" expanded="true" />
               </folding>
@@ -71,7 +228,7 @@
         <entry file="file://$PROJECT_DIR$/dqn.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="134" column="83" selection-start-line="134" selection-start-column="83" selection-end-line="134" selection-end-column="83" />
+              <caret line="49" column="22" selection-start-line="0" selection-start-column="0" selection-end-line="128" selection-end-column="0" />
               <folding>
                 <element signature="e#0#33#0" expanded="true" />
               </folding>
@@ -79,11 +236,23 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="train.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/train.py">
+      <file leaf-file-name="modified_dqn.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/modified_dqn.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-0.07906977">
+              <caret line="15" column="75" selection-start-line="15" selection-start-column="75" selection-end-line="15" selection-end-column="75" />
+              <folding>
+                <element signature="e#0#33#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="td_net.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/td_net.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="75" column="34" selection-start-line="75" selection-start-column="34" selection-end-line="75" selection-end-column="34" />
+              <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
               </folding>
@@ -91,11 +260,33 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="display_stats.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="train_dqn.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/train_dqn.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="22" column="18" selection-start-line="22" selection-start-column="18" selection-end-line="22" selection-end-column="18" />
+              <folding>
+                <element signature="e#0#19#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="layer_helpers.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/layer_helpers.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="16" column="53" selection-start-line="16" selection-start-column="53" selection-end-line="16" selection-end-column="53" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="display_stats.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/display_stats.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.1212766">
-              <caret line="31" column="26" selection-start-line="31" selection-start-column="26" selection-end-line="31" selection-end-column="26" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="25" column="8" selection-start-line="25" selection-start-column="8" selection-end-line="25" selection-end-column="8" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
@@ -107,7 +298,7 @@
         <entry file="file://$PROJECT_DIR$/play.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="59" column="33" selection-start-line="59" selection-start-column="33" selection-end-line="59" selection-end-column="33" />
+              <caret line="41" column="21" selection-start-line="41" selection-start-column="21" selection-end-line="41" selection-end-column="21" />
               <folding>
                 <element signature="e#0#23#0" expanded="true" />
               </folding>
@@ -131,19 +322,22 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/mess_with_tkinter.py" />
-        <option value="$PROJECT_DIR$/test_environment.py" />
-        <option value="$PROJECT_DIR$/atari_env.py" />
         <option value="$PROJECT_DIR$/observation_processing.py" />
-        <option value="$PROJECT_DIR$/dqn.py" />
-        <option value="$PROJECT_DIR$/train.py" />
-        <option value="$PROJECT_DIR$/play.py" />
         <option value="$PROJECT_DIR$/display_stats.py" />
+        <option value="$PROJECT_DIR$/play.py" />
+        <option value="$PROJECT_DIR$/test_environment.py" />
+        <option value="$PROJECT_DIR$/train.py" />
+        <option value="$PROJECT_DIR$/layer_helpers.py" />
+        <option value="$PROJECT_DIR$/dqn.py" />
+        <option value="$PROJECT_DIR$/td_net.py" />
+        <option value="$PROJECT_DIR$/modified_dqn.py" />
+        <option value="$PROJECT_DIR$/atari_env.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="-1366" />
-    <option name="y" value="24" />
+    <option name="y" value="792" />
     <option name="width" value="1366" />
     <option name="height" value="744" />
   </component>
@@ -172,6 +366,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -192,13 +387,17 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$USER_HOME$" />
   </component>
-  <component name="RunManager" selected="Python.display_stats">
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/weights" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python.train">
     <configuration default="false" name="test_environment" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -228,7 +427,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="my_dqn" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/train.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/train_dqn.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -250,23 +449,6 @@
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
     </configuration>
-    <configuration default="false" name="dqn" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="my_dqn" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/dqn.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <method />
-    </configuration>
     <configuration default="false" name="play" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -280,6 +462,23 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="my_dqn" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/play.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="atari_env" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="my_dqn" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/atari_env.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -410,16 +609,16 @@
       <item index="0" class="java.lang.String" itemvalue="Python.test_environment" />
       <item index="1" class="java.lang.String" itemvalue="Python.train" />
       <item index="2" class="java.lang.String" itemvalue="Python.display_stats" />
-      <item index="3" class="java.lang.String" itemvalue="Python.dqn" />
-      <item index="4" class="java.lang.String" itemvalue="Python.play" />
+      <item index="3" class="java.lang.String" itemvalue="Python.play" />
+      <item index="4" class="java.lang.String" itemvalue="Python.atari_env" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.display_stats" />
-        <item index="1" class="java.lang.String" itemvalue="Python.play" />
-        <item index="2" class="java.lang.String" itemvalue="Python.train" />
-        <item index="3" class="java.lang.String" itemvalue="Python.test_environment" />
-        <item index="4" class="java.lang.String" itemvalue="Python.dqn" />
+        <item index="0" class="java.lang.String" itemvalue="Python.train" />
+        <item index="1" class="java.lang.String" itemvalue="Python.test_environment" />
+        <item index="2" class="java.lang.String" itemvalue="Python.atari_env" />
+        <item index="3" class="java.lang.String" itemvalue="Python.play" />
+        <item index="4" class="java.lang.String" itemvalue="Python.display_stats" />
       </list>
     </recent_temporary>
   </component>
@@ -428,13 +627,14 @@
     <configuration />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1366" y="24" width="1366" height="744" extended-state="6" />
+    <frame x="-1366" y="792" width="1366" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1384959" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32937685" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32937685" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32937685" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2596439" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2596439" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -442,7 +642,6 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
@@ -481,46 +680,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/train.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="75" column="34" selection-start-line="75" selection-start-column="34" selection-end-line="75" selection-end-column="34" />
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/display_stats.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="25" column="14" selection-start-line="25" selection-start-column="14" selection-end-line="25" selection-end-column="14" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/play.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#23#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/atari_env.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="45" column="41" selection-start-line="45" selection-start-column="41" selection-end-line="45" selection-end-column="41" />
-          <folding>
-            <element signature="e#0#45#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test_environment.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -551,7 +710,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/train.py">
+    <entry file="file://$PROJECT_DIR$/train_dqn.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="75" column="34" selection-start-line="75" selection-start-column="34" selection-end-line="75" selection-end-column="34" />
@@ -621,7 +780,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/train.py">
+    <entry file="file://$PROJECT_DIR$/train_dqn.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -721,7 +880,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/train.py">
+    <entry file="file://$PROJECT_DIR$/train_dqn.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
@@ -791,7 +950,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/train.py">
+    <entry file="file://$PROJECT_DIR$/train_dqn.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -851,7 +1010,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/train.py">
+    <entry file="file://$PROJECT_DIR$/train_dqn.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -906,26 +1065,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test_environment.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#33#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/atari_env.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="45" column="41" selection-start-line="45" selection-start-column="41" selection-end-line="45" selection-end-column="41" />
-          <folding>
-            <element signature="e#0#45#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/observation_processing.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -936,22 +1075,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dqn.py">
+    <entry file="file://$PROJECT_DIR$/test_environment.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="134" column="83" selection-start-line="134" selection-start-column="83" selection-end-line="134" selection-end-column="83" />
+          <caret line="6" column="22" selection-start-line="6" selection-start-column="22" selection-end-line="6" selection-end-column="22" />
           <folding>
             <element signature="e#0#33#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/train.py">
+    <entry file="file://$PROJECT_DIR$/display_stats.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="75" column="34" selection-start-line="75" selection-start-column="34" selection-end-line="75" selection-end-column="34" />
+          <caret line="25" column="8" selection-start-line="25" selection-start-column="8" selection-end-line="25" selection-end-column="8" />
           <folding>
-            <element signature="e#0#19#0" expanded="true" />
+            <element signature="e#0#18#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -959,19 +1098,75 @@
     <entry file="file://$PROJECT_DIR$/play.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="59" column="33" selection-start-line="59" selection-start-column="33" selection-end-line="59" selection-end-column="33" />
+          <caret line="41" column="21" selection-start-line="41" selection-start-column="21" selection-end-line="41" selection-end-column="21" />
           <folding>
             <element signature="e#0#23#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/display_stats.py">
+    <entry file="file://$PROJECT_DIR$/weights/weights_391.npy">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.1212766">
-          <caret line="31" column="26" selection-start-line="31" selection-start-column="26" selection-end-line="31" selection-end-column="26" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/layer_helpers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="16" column="53" selection-start-line="16" selection-start-column="53" selection-end-line="16" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/td_net.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
           <folding>
-            <element signature="e#0#18#0" expanded="true" />
+            <element signature="e#0#19#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dqn.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="49" column="22" selection-start-line="0" selection-start-column="0" selection-end-line="128" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#33#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/train_dqn.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="22" column="18" selection-start-line="22" selection-start-column="18" selection-end-line="22" selection-end-column="18" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/atari_env.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#45#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modified_dqn.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.07906977">
+          <caret line="15" column="75" selection-start-line="15" selection-start-column="75" selection-end-line="15" selection-end-column="75" />
+          <folding>
+            <element signature="e#0#33#0" expanded="true" />
           </folding>
         </state>
       </provider>

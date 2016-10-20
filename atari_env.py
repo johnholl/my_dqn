@@ -1,9 +1,9 @@
 from ale_python_interface import ALEInterface
 import numpy as np
-from Tkinter import *
-import ImageTk
-from PIL import Image
-import time
+# from Tkinter import *
+# import ImageTk
+# from PIL import Image
+# import time
 import random
 
 
@@ -13,15 +13,19 @@ class Environment:
     def __init__(self, rom):
         self.ale = ALEInterface()
         self.ale.setFloat(b'repeat_action_probability', 0.0)
+        # self.ale.setInt(b'random_seed', 123456)
         self.ale.loadROM(rom_file=rom)
         self.action_space = self.ale.getMinimalActionSet()
+        # for i in range(len(self.action_space)):
+        #     self.action_space[i]=i
         self.obs = self.reset()
-        self.im = Image.fromarray(self.obs)
-        self.root = Tk()
-        self.tkim = ImageTk.PhotoImage(self.im)
-        self.window = Label(image=self.tkim)
-        self.window.image = self.tkim
-        self.window.pack()
+        # self.im = Image.fromarray(self.obs)
+        # self.root = Tk()
+        # self.tkim = ImageTk.PhotoImage(self.im)
+        # self.window = Label(image=self.tkim)
+        # self.window.image = self.tkim
+        # self.window.pack()
+
 
 
     def step(self, action):
@@ -50,16 +54,16 @@ class Environment:
         self.obs = np.squeeze(self.ale.getScreenGrayscale())
         return self.obs
 
-    def render(self, rate=0.1):
-        self.im = Image.fromarray(self.obs)
-        self.tkim = ImageTk.PhotoImage(self.im)
-        self.window.configure(image=self.tkim)
-        self.window.image = self.tkim
-        self.window.update_idletasks()
-        self.window.update()
-        time.sleep(rate)
+    # def render(self, rate=0.1):
+    #     self.im = Image.fromarray(self.obs)
+    #     self.tkim = ImageTk.PhotoImage(self.im)
+    #     self.window.configure(image=self.tkim)
+    #     self.window.image = self.tkim
+    #     self.window.update_idletasks()
+    #     self.window.update()
+    #     time.sleep(rate)
 
     def sample_action(self):
-        action = random.choice([0, 1, 2, 3])
+        action = random.choice(range(len(self.action_space)))
         return action
 

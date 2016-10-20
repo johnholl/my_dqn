@@ -20,10 +20,10 @@ layer3_bias = [weight_data[i][5] for i in range(len(weight_data))]
 layer4_weights = [weight_data[i][6] for i in range(len(weight_data))]
 layer4_bias = [weight_data[i][7] for i in range(len(weight_data))]
 
-plt.ylabel("Average reward over 20 episodes")
+plt.ylabel("Q values over 20 episodes")
 
 for i in reward_vals:
-    if i > 172:
+    if i > 250:
         print(reward_vals.index(i))
 
 

@@ -5,12 +5,15 @@ import numpy as np
 import random
 from layer_helpers import weight_variable, bias_variable, conv2d
 
-class DQN:
+# below is a TD network that takes normal DQN and adds in random weighted pixel sum predictions
 
-    def __init__(self, rom='Breakout.bin'):
+
+class TD_DQN:
+
+    def __init__(self, num_predictions, rom='Breakout.bin'):
         self.rom = rom
         self.env = Environment(rom=self.rom)
-        self.OUTPUT_SIZE = len(self.env.action_space)
+        self.OUTPUT_SIZE = len(self.env.action_space)*(1 + num_predictions)
         self.weights = self.initialize_network()
         self.replay_memory = []
 

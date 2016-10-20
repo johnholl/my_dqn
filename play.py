@@ -19,7 +19,7 @@ def conv2d(x, W, stride):
 
 
 # Extract weights from npy file
-weights = np.load("weights_318.npy", encoding="latin1")
+weights = np.load("weights_391.npy", encoding="latin1")
 
 # network
 
@@ -39,7 +39,7 @@ fc2_weight = weight_variable(shape=[256, 4], name='fc2_weight', weight_value=wei
 fc2_bias = bias_variable(shape=[4], name='fc2_bias', bias_value=weights[7])
 output = tf.matmul(fc1_layer, fc2_weight) + fc2_bias
 
-env = Environment("Breakout.bin")
+env = Environment("./space_invaders.bin")
 session = tf.Session()
 session.run(tf.initialize_all_variables())
 episode_step_count = []
