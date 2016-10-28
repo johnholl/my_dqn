@@ -12,8 +12,10 @@ class TD_DQN:
 
     def __init__(self, num_predictions, rom='Breakout.bin'):
         self.rom = rom
+        self.num_predictions = num_predictions
         self.env = Environment(rom=self.rom)
-        self.OUTPUT_SIZE = len(self.env.action_space)*(1 + num_predictions)
+        self.ACTION_SIZE = len(self.env.action_space)
+        self.OUTPUT_SIZE = self.ACTION_SIZE*(1 + num_predictions)
         self.weights = self.initialize_network()
         self.replay_memory = []
 
@@ -35,10 +37,21 @@ class TD_DQN:
         self.fc2_weight = weight_variable(shape=[256, self.OUTPUT_SIZE], name='fc2_weight')
         self.fc2_bias = bias_variable(shape=[self.OUTPUT_SIZE], name='fc2_bias')
         self.output = tf.matmul(self.fc1_layer, self.fc2_weight) + self.fc2_bias
+        self.reshaped_output = tf.reshape(self.output, shape=[-1, self.num_predictions+1, self.ACTION_SIZE])
 
-        self.target = tf.placeholder(tf.float32, None)
-        self.action_hot = tf.placeholder('float', [None, self.OUTPUT_SIZE])
-        self.action_readout = tf.reduce_sum(tf.mul(self.output, self.action_hot), reduction_indices=1)
+        self.target = tf.placeholder(tf.float32, (None, self.num_predictions+1))
+        self.action_hot = tf.placeholder('float', [None, self.ACTION_SIZE, 1])
+        self.action_readout = tf.squeeze(tf.batch_matmul(self.reshaped_output, self.action_hot))
+
+        self.action_readout_q = tf.slice(self.action_readout, [0, 0], [-1, 1])
+        self.target_q = tf.slice(self.target, [0,0], [-1,1])
+        self.loss_q = tf.reduce_mean(.5*tf.square(tf.sub(self.action_readout_q, self.target_q)))
+
+        self.action_readout_pred = tf.slice(self.action_readout, [0, 1], [-1, self.num_predictions+1])
+        self.target_pred = tf.slice(self.target, [0, 1], [-1, self.num_predictions+1])
+        self.loss_pred = tf.reduce_mean(.5*tf.square(tf.sub(self.action_readout_pred, self.target_pred)))
+
+
         self.loss = tf.reduce_mean(.5*tf.square(tf.sub(self.action_readout, self.target)))
         self.optimizer = tf.train.RMSPropOptimizer(0.00025, decay=0.95, epsilon=0.01)
         self.gradients_and_vars = self.optimizer.compute_gradients(self.loss)
@@ -114,7 +127,8 @@ class TD_DQN:
     # A helper that combines different parts of the step procedure
     def true_step(self, prob, state, obs2, obs3, obs4, env):
 
-        Q_vals = self.sess.run(self.output, feed_dict={self.input: [np.array(state)]})
+        output = self.sess.run(self.output, feed_dict={self.input: [np.array(state)]})
+        Q_vals = output[0][:self.ACTION_SIZE]
         if random.uniform(0,1) > prob:
             step_action = Q_vals.argmax()
         else:
