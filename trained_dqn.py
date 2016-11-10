@@ -5,17 +5,13 @@ import numpy as np
 import random
 from layer_helpers import weight_variable, bias_variable, conv2d
 
-# below is a TD network that takes normal DQN and adds in random weighted pixel sum predictions
+class trained_DQN:
 
-
-class TD_DQN:
-
-    def __init__(self, num_predictions, rom='Breakout.bin'):
+    def __init__(self, rom='Breakout.bin'):
         self.rom = rom
-        self.num_predictions = num_predictions
         self.env = Environment(rom=self.rom)
-        self.ACTION_SIZE = len(self.env.action_space)
-        self.OUTPUT_SIZE = self.ACTION_SIZE*(1 + num_predictions)
+        self.OUTPUT_SIZE = len(self.env.action_space)
+        self.initial_weights = np.load("./weights/weights_391.npy", encoding="latin1")
         self.weights = self.initialize_network()
         self.replay_memory = []
 
@@ -24,34 +20,23 @@ class TD_DQN:
     def initialize_network(self):
         self.sess = tf.Session()
         self.input = tf.placeholder(tf.float32, shape=[None, 84, 84, 4])
-        self.conv1_weight = weight_variable(shape=[8, 8, 4, 16], name='conv1_weight')
-        self.conv1_bias = bias_variable(shape=[16], name='conv1_bias')
+        self.conv1_weight = weight_variable(shape=[8, 8, 4, 16], name='conv1_weight', initial_weight=self.initial_weights[0])
+        self.conv1_bias = bias_variable(shape=[16], name='conv1_bias', initial_weight=self.initial_weights[1])
         self.conv1_layer = tf.nn.relu(conv2d(self.input, self.conv1_weight, 4) + self.conv1_bias)
-        self.conv2_weight = weight_variable(shape=[4, 4, 16, 32], name='conv2_weight')
-        self.conv2_bias = bias_variable(shape=[32], name='conv2_bias')
+        self.conv2_weight = weight_variable(shape=[4, 4, 16, 32], name='conv2_weight', initial_weight=self.initial_weights[2])
+        self.conv2_bias = bias_variable(shape=[32], name='conv2_bias', initial_weight=self.initial_weights[3])
         self.conv2_layer = tf.nn.relu(conv2d(self.conv1_layer, self.conv2_weight, 2) + self.conv2_bias)
         self.conv2_layer_flattened = tf.reshape(self.conv2_layer, [-1, 9*9*32])
-        self.fc1_weight = weight_variable(shape=[9*9*32, 256], name='fc1_weight')
-        self.fc1_bias = bias_variable(shape=[256], name='fc1_bias')
+        self.fc1_weight = weight_variable(shape=[9*9*32, 256], name='fc1_weight', initial_weight=self.initial_weights[4])
+        self.fc1_bias = bias_variable(shape=[256], name='fc1_bias', initial_weight=self.initial_weights[5])
         self.fc1_layer = tf.nn.relu(tf.matmul(self.conv2_layer_flattened, self.fc1_weight) + self.fc1_bias)
-        self.fc2_weight = weight_variable(shape=[256, self.OUTPUT_SIZE], name='fc2_weight')
-        self.fc2_bias = bias_variable(shape=[self.OUTPUT_SIZE], name='fc2_bias')
+        self.fc2_weight = weight_variable(shape=[256, self.OUTPUT_SIZE], name='fc2_weight', initial_weight=self.initial_weights[6])
+        self.fc2_bias = bias_variable(shape=[self.OUTPUT_SIZE], name='fc2_bias', initial_weight=self.initial_weights[7])
         self.output = tf.matmul(self.fc1_layer, self.fc2_weight) + self.fc2_bias
-        self.reshaped_output = tf.reshape(self.output, shape=[-1, self.num_predictions+1, self.ACTION_SIZE])
 
-        self.target = tf.placeholder(tf.float32, (None, self.num_predictions+1))
-        self.action_hot = tf.placeholder('float', [None, self.ACTION_SIZE, 1])
-        self.action_readout = tf.squeeze(tf.batch_matmul(self.reshaped_output, self.action_hot))
-
-        self.action_readout_q = tf.slice(self.action_readout, [0, 0], [-1, 1])
-        self.target_q = tf.slice(self.target, [0,0], [-1,1])
-        self.loss_q = tf.reduce_mean(.5*tf.square(tf.sub(self.action_readout_q, self.target_q)))
-
-        self.action_readout_pred = tf.slice(self.action_readout, [0, 1], [-1, self.num_predictions])
-        self.target_pred = tf.slice(self.target, [0, 1], [-1, self.num_predictions])
-        self.loss_pred = tf.reduce_mean(.5*tf.square(tf.sub(self.action_readout_pred, self.target_pred)))
-
-
+        self.target = tf.placeholder(tf.float32, None)
+        self.action_hot = tf.placeholder('float', [None, self.OUTPUT_SIZE])
+        self.action_readout = tf.reduce_sum(tf.mul(self.output, self.action_hot), reduction_indices=1)
         self.loss = tf.reduce_mean(.5*tf.square(tf.sub(self.action_readout, self.target)))
         self.optimizer = tf.train.RMSPropOptimizer(0.00025, decay=0.95, epsilon=0.01)
         self.gradients_and_vars = self.optimizer.compute_gradients(self.loss)
@@ -127,8 +112,7 @@ class TD_DQN:
     # A helper that combines different parts of the step procedure
     def true_step(self, prob, state, obs2, obs3, obs4, env):
 
-        output = self.sess.run(self.output, feed_dict={self.input: [np.array(state)]})
-        Q_vals = output[0][:self.ACTION_SIZE]
+        Q_vals = self.sess.run(self.output, feed_dict={self.input: [np.array(state)]})
         if random.uniform(0,1) > prob:
             step_action = Q_vals.argmax()
         else:

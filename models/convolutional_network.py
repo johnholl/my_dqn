@@ -22,4 +22,6 @@ class Convnet:
         self.output = tf.matmul(self.fc1_layer, self.fc2_weight) + self.fc2_bias
         # self.reshaped_output = tf.reshape(self.output, shape=[-1, self.num_predictions+1, self.ACTION_SIZE])
         self.weights = [self.conv1_weight, self.conv1_bias, self.conv2_weight, self.conv2_bias, self.fc1_weight,
-                   self.fc1_bias, self.fc2_weight, self.fc2_bias]
+                        self.fc1_bias, self.fc2_weight, self.fc2_bias]
+
+        self.sess.run(tf.initialize_all_variables())

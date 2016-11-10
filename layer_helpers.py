@@ -2,11 +2,11 @@ import tensorflow as tf
 
 
 def weight_variable(shape, name, initial_weight=None):
-    if initial_weight:
-        return tf.Variable(initial_weight, name=name)
-    else:
+    if initial_weight is None:
         initial = tf.random_normal(shape, stddev=0.01)
         return tf.Variable(initial, name=name)
+    else:
+        return tf.Variable(initial_weight, name=name)
 
 
 def bias_variable(shape, name, initial_weight=None):

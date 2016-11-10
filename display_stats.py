@@ -10,13 +10,16 @@ from matplotlib import pyplot as plt
 # loss = [learning_data10[i][5] for i in range(len(learning_data10))]
 # prob = [learning_data10[i][6] for i in range(len(learning_data10))]
 
-learning_data = np.load("/home/john/code/pythonfiles/my_dqn/learning_data_TD20.npy")
+learning_data = np.load("/home/john/code/pythonfiles/my_dqn/learning_data_TD20_2.npy")
 time_vals = [learning_data[i][0] for i in range(len(learning_data))]
 Q_vals = [learning_data[i][1] for i in range(len(learning_data))]
 reward_vals = [learning_data[i][2] for i in range(len(learning_data))]
 max_reward_vals = [learning_data[i][3] for i in range(len(learning_data))]
 step_vals = [learning_data[i][4] for i in range(len(learning_data))]
 loss = [learning_data[i][5] for i in range(len(learning_data))]
+loss_prediction = [learning_data[i][6] for i in range(len(learning_data))]
+loss_Q = [learning_data[i][7] for i in range(len(learning_data))]
+
 # projloss = [learning_data[i][6] for i in range(len(learning_data))]
 # Qloss = [learning_data[i][7] for i in range(len(learning_data))]
 # prob = [learning_data[i][8] for i in range(len(learning_data))]
@@ -34,7 +37,7 @@ loss = [learning_data[i][5] for i in range(len(learning_data))]
 
 
 
-plt.plot(time_vals, reward_vals)
+plt.plot(time_vals, loss_prediction)
 # plt.plot(time_vals, layer1_bias)
 plt.show()
 
