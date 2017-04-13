@@ -3,11 +3,10 @@ import random
 from observation_processing import preprocess, blacken_score
 import numpy as np
 
-env = Environment(rom="/home/john/code/pythonfiles/my_dqn/Breakout.bin")
+env = Environment(rom="/home/john/my_dqn/Breakout.bin")
 obs = env.reset()
 done = False
 while not done:
-    env.render()
     action = raw_input("enter an action: ")
 
     if action not in ["0", "1", "2", "3"]:
